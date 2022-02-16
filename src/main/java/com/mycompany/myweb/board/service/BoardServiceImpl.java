@@ -31,6 +31,13 @@ public class BoardServiceImpl implements BoardService{
 		
 	}
 
+	@Override
+	public BoardVO getBoardContent(int bid) throws Exception {
+		// TODO Auto-generated method stub
+		       boardDAO.updateViewCnt(bid);//조회수 증가
+		return boardDAO.getBoardContent(bid);
+	}
+
 
 	
 }

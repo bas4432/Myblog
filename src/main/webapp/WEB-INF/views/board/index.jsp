@@ -10,7 +10,8 @@
 <meta charset="UTF-8">
 <title>board</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
 $(document).ready(function(){ 
@@ -20,9 +21,14 @@ $(document).ready(function(){
 	})
 });
 
+function fn_contentView(bid){
+	var url = "${path}/board/getboardContent";
+	alert("url::" + url)
+    url = url + "?bid="+ bid;
+	alert(url);
 	
-
-
+	location.href = url;
+}
 
 </script>
 
@@ -71,8 +77,13 @@ $(document).ready(function(){
 					<c:forEach var="list" items="${boardList}">
 
 						<tr>
-
-							<td><c:out value="${list.bid}" /></td>
+                            
+                            <td><c:out value="${list.bid}"/></td>
+							<td>
+							    <a href="#" onClick="fn_contentView(<c:out value="${list.bid}"/>)"> 
+				                <c:out value="${list.title}" />
+				                </a>
+				            </td> 
 							<td><c:out value="${list.title}" /></td>
 							<td><c:out value="${list.reg_id}" /></td>
 							<td><c:out value="${list.view_cnt}" /></td>
@@ -88,12 +99,12 @@ $(document).ready(function(){
 
 		</tbody>
 	</table>
-	
-		<div>
 
-			<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">글쓰기</button>
+	<div>
 
-		</div>
+		<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">글쓰기</button>
+
+	</div>
 
 
 

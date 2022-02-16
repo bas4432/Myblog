@@ -10,7 +10,11 @@ public interface BoardService {
 	
 	public List<BoardVO> getBoardList() throws Exception; //게시글 조회
 	
-	public void insertBoard(BoardVO boardVO) throws Exception;
+	public void insertBoard(BoardVO boardVO) throws Exception; //글 작성
+	
+	public BoardVO getBoardContent(int bid) throws Exception; //글 상세 내용
+
+	
 	 
 	
 }

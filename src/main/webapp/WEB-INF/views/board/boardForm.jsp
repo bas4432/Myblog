@@ -10,8 +10,7 @@
 <meta charset="UTF-8">
 <title>board</title>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <script>
@@ -78,8 +77,7 @@
 			<div>
 
 				<button type="button" class="btn btn-sm btn-primary" id="btnSave">저장</button>
-
-				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
+                <button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
 
 			</div>
 
