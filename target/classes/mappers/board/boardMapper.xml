@@ -10,7 +10,19 @@
 		select bid, cate_cd, title, content, tag , view_cnt,
 		reg_id, reg_dt, edit_dt
 
-		from tb_board;
+		from tb_board
+		
+		ORDER BY bid DESC
+		
+		LIMIT #{startList}, #{listSize};
+		
+	
+	</select>
+	
+	<select id="getBoardListCnt" resultType="int">
+	select count(*) as listCnt
+	from tb_board;
+	
 	</select>
 
 	<select id="getBoardContent" resultType="com.mycompany.myweb.board.model.BoardVO"

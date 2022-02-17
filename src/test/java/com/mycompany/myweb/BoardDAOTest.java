@@ -37,29 +37,29 @@ public class BoardDAOTest {
 
 	
 
-	@Test @Ignore
-    public void testGetBoardList() throws Exception {
-		
-
-		List<BoardVO> boardList = boardDAO.getBoardList();
-
-		logger.info("\n Board List \n ");
-
-		if(boardList.size() > 0) {
-
-			for(BoardVO list : boardList) {
-
-				logger.info(list.title);
-
-			}
-
-		} else {
-
-			logger.info("데이터가 없습니다.");
-
-		}
-
-	}
+//	@Test @Ignore
+//    public void testGetBoardList() throws Exception {
+//		
+//
+//		List<BoardVO> boardList = boardDAO.getBoardList();
+//
+//		logger.info("\n Board List \n ");
+//
+//		if(boardList.size() > 0) {
+//
+//			for(BoardVO list : boardList) {
+//
+//				logger.info(list.title);
+//
+//			}
+//
+//		} else {
+//
+//			logger.info("데이터가 없습니다.");
+//
+//		}
+//
+//	}
 
 	
 
@@ -98,7 +98,7 @@ public class BoardDAOTest {
 
 	
 
-	@Test
+	@Test @Ignore
 
 	public void testInsertBoard() throws Exception {
 
@@ -115,9 +115,9 @@ public class BoardDAOTest {
 		boardVO.setReg_id("1");
 
 		
-
-		int result = boardDAO.insertBoard(boardVO);
-
+        for(int i=0 ; i<20 ; i++) {
+		 int result = boardDAO.insertBoard(boardVO);
+		
 		logger.info("\n Insert Board Result " +result);
 
 		if(result == 1) {
@@ -129,7 +129,10 @@ public class BoardDAOTest {
 			logger.info("\n 게시물 등록 실패");
 
 		}
+		
+        }
 
+		
 	}
 
 	

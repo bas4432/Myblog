@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.myweb.board.dao.BoardDAO;
 import com.mycompany.myweb.board.model.BoardVO;
+import com.mycompany.myweb.commons.Pagination;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -19,9 +20,9 @@ public class BoardServiceImpl implements BoardService{
 	
 	//게시글 리스트
 	@Override
-	public List<BoardVO> getBoardList() throws Exception {
+	public List<BoardVO> getBoardList(Pagination pagination) throws Exception {
 		// TODO Auto-generated method stub
-	    return boardDAO.getBoardList();
+	    return boardDAO.getBoardList(pagination);
 	}
 
 	@Override
@@ -36,6 +37,33 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		       boardDAO.updateViewCnt(bid);//조회수 증가
 		return boardDAO.getBoardContent(bid);
+	}
+
+	@Override
+	public void updateBoard(BoardVO boardVO) throws Exception {
+		System.out.println("수정서비스");
+		
+		boardDAO.updateBoard(boardVO);
+		
+		System.out.println("수정서비스1");
+		
+	}
+
+	@Override
+	public void deleteBoard(int bid) throws Exception {
+		
+		System.out.println("삭제");
+		
+		boardDAO.deleteBoard(bid);
+		
+	}
+
+	@Override
+	public int getBoardListCnt() throws Exception {
+		
+		System.out.println("리스트개수");
+		// TODO Auto-generated method stub
+		return boardDAO.getBoardListCnt();
 	}
 
 
