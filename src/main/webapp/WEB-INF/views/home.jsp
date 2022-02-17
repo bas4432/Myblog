@@ -3,6 +3,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%@ page session="false" %>
+
+<link rel="stylesheet" href="${path}/resources/css/test.css">
+
 <html>
 <head>
 	<title>Home</title>
@@ -13,6 +16,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<h1><a href="${path}/board/getboardList">list</a></h1>
+<h1><a class="test" href="${path}/board/getboardList">list</a></h1>
 </body>
 </html>

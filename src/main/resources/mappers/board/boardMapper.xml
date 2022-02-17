@@ -12,18 +12,66 @@
 
 		from tb_board
 		
-		ORDER BY bid DESC
-		
+		<!-- <trim prefix="WHERE" prefixOverrides="AND|OR">
+
+			<if test="searchType=='title' and keyword != null and keyword != '' ">
+				AND TITLE like CONCAT('%', #{keyword}, '%')
+            </if>
+
+			<if test="searchType=='content' and keyword != null and keyword != '' ">
+				AND CONTENT like CONCAT('%', #{keyword}, '%')
+			</if>
+
+			<if test="searchType=='reg_id' and keyword != null and keyword != '' ">
+				AND reg_id like CONCAT('%', #{keyword}, '%')
+			</if>	
+
+		</trim> -->
+
 		LIMIT #{startList}, #{listSize};
+
+	</select>
+
+
+
+
+
+		
 		
 	
-	</select>
 	
 	<select id="getBoardListCnt" resultType="int">
-	select count(*) as listCnt
-	from tb_board;
+	 select count(*) as listCnt
+	  
+	  from tb_board
 	
-	</select>
+	
+	<!--   <trim prefix="WHERE" prefixOverrides="AND|OR">
+
+       <if test="keyword != null and keyword != '' ">
+
+			<if test="searchType=='title'">
+
+				AND TITLE like CONCAT('%', #{keyword}, '%')
+
+			</if>
+
+			<if test="searchType=='content'">
+
+				AND CONTENT like CONCAT('%', #{keyword}, '%')
+
+			</if>
+
+			<if test="searchType=='reg_id'">
+
+				AND reg_id like CONCAT('%', #{keyword}, '%')
+
+			</if>
+
+      </if>
+
+	</trim> -->
+</select>
 
 	<select id="getBoardContent" resultType="com.mycompany.myweb.board.model.BoardVO"
 		parameterType="com.mycompany.myweb.board.model.BoardVO">

@@ -28,8 +28,14 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value ="/getboardList" ,method = RequestMethod.GET) 
-	public String getboardList(Model model, @RequestParam(required = false, defaultValue = "1") int page,
-			@RequestParam(required = false, defaultValue = "1") int range) throws Exception {
+	public String getboardList(Model model, 
+			@RequestParam(required = false, defaultValue = "1") int page,
+			@RequestParam(required = false, defaultValue = "1") int range
+//			@RequestParam(required = false, defaultValue = "title") String searchType,
+//			@RequestParam(required = false) String Keyword
+			) throws Exception                                                    
+	 {
+		
 		logger.info("보트리스트");
 		
 		//전체 게시글 개수
@@ -91,11 +97,11 @@ public class BoardController {
 	@RequestMapping(value = "/postboardModify", method = RequestMethod.POST)
     public String getBoardModify(BoardVO boardVO, RedirectAttributes rttr) throws Exception {
 		
-		logger.info(boardVO.title);
-		logger.info("수정 저장");
+		
+		
 		boardService.updateBoard(boardVO);
 		
-		logger.info("수정 저장2");
+		
 	   
 		return "redirect:/board/getboardList";
 

@@ -98,7 +98,7 @@ public class BoardDAOTest {
 
 	
 
-	@Test @Ignore
+	@Test
 
 	public void testInsertBoard() throws Exception {
 
@@ -115,20 +115,20 @@ public class BoardDAOTest {
 		boardVO.setReg_id("1");
 
 		
-        for(int i=0 ; i<20 ; i++) {
+        for(int i=0 ; i<110 ; i++) {
 		 int result = boardDAO.insertBoard(boardVO);
 		
-		logger.info("\n Insert Board Result " +result);
+		  logger.info("\n Insert Board Result " +result);
 
-		if(result == 1) {
+		  if(result == 1) {
 
 			logger.info("\n 게시물 등록 성공 ");
 
-		} else {
+		  } else {
 
 			logger.info("\n 게시물 등록 실패");
 
-		}
+		  }
 		
         }
 
