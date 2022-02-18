@@ -18,7 +18,4 @@ public class Search extends Pagination{
 		this.keyword = keyword;
 	}
     
-    
-
-
 }

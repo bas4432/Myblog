@@ -5,11 +5,12 @@ import java.util.Map;
 
 import com.mycompany.myweb.board.model.BoardVO;
 import com.mycompany.myweb.commons.Pagination;
+import com.mycompany.myweb.commons.Search;
 
 public interface BoardService {
    
 	
-	public List<BoardVO> getBoardList(Pagination pagination) throws Exception; //게시글 조회
+	public List<BoardVO> getBoardList(Search search) throws Exception; //게시글 조회
 	
 	public void insertBoard(BoardVO boardVO) throws Exception; //글 작성
 	
@@ -19,7 +20,7 @@ public interface BoardService {
     
 	public void deleteBoard(int bid) throws Exception; // 글 삭제
 	
-	public int getBoardListCnt() throws Exception; //총 게시글 수 확인
+	public int getBoardListCnt(Search search) throws Exception; //총 게시글 수 확인
 	
 	
 	

@@ -12,7 +12,7 @@
 
 		from tb_board
 		
-		<!-- <trim prefix="WHERE" prefixOverrides="AND|OR">
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
 
 			<if test="searchType=='title' and keyword != null and keyword != '' ">
 				AND TITLE like CONCAT('%', #{keyword}, '%')
@@ -26,7 +26,7 @@
 				AND reg_id like CONCAT('%', #{keyword}, '%')
 			</if>	
 
-		</trim> -->
+		</trim> 
 
 		LIMIT #{startList}, #{listSize};
 
@@ -46,7 +46,7 @@
 	  from tb_board
 	
 	
-	<!--   <trim prefix="WHERE" prefixOverrides="AND|OR">
+	  <trim prefix="WHERE" prefixOverrides="AND|OR">
 
        <if test="keyword != null and keyword != '' ">
 
@@ -70,7 +70,7 @@
 
       </if>
 
-	</trim> -->
+	</trim>
 </select>
 
 	<select id="getBoardContent" resultType="com.mycompany.myweb.board.model.BoardVO"

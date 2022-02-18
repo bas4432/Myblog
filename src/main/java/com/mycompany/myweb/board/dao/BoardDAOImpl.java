@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mycompany.myweb.board.model.BoardVO;
 import com.mycompany.myweb.commons.Pagination;
+import com.mycompany.myweb.commons.Search;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -21,9 +22,9 @@ public class BoardDAOImpl implements BoardDAO {
 	
 
 	@Override
-	public List<BoardVO> getBoardList(Pagination pagination) throws Exception {
+	public List<BoardVO> getBoardList(Search search) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(NAMESPACE + ".getBoardList" , pagination);
+		return sqlSession.selectList(NAMESPACE + ".getBoardList" , search);
 	}
 
 	@Override
@@ -57,9 +58,9 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public int getBoardListCnt() throws Exception {
+	public int getBoardListCnt(Search search) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(NAMESPACE+".getBoardListCnt");
+		return sqlSession.selectOne(NAMESPACE+".getBoardListCnt" , search);
 	}
 
 }

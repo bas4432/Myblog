@@ -185,7 +185,7 @@ $(document).on('click', '#btnSearch', function(e){
 		<div class="w100" style="padding-right: 10px">
 			<select class="form-control form-control-sm" name="searchType" id="searchType">
 				<option value="title">제목</option>
-				<option value="Content">본문</option>
+				<option value="content">본문</option>
 				<option value="reg_id">작성자</option>
 			</select>
 	    </div>

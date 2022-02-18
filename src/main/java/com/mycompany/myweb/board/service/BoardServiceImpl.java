@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.mycompany.myweb.board.dao.BoardDAO;
 import com.mycompany.myweb.board.model.BoardVO;
 import com.mycompany.myweb.commons.Pagination;
+import com.mycompany.myweb.commons.Search;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -20,9 +21,9 @@ public class BoardServiceImpl implements BoardService{
 	
 	//게시글 리스트
 	@Override
-	public List<BoardVO> getBoardList(Pagination pagination) throws Exception {
+	public List<BoardVO> getBoardList(Search search) throws Exception {
 		// TODO Auto-generated method stub
-	    return boardDAO.getBoardList(pagination);
+	    return boardDAO.getBoardList(search);
 	}
 
 	@Override
@@ -59,11 +60,11 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int getBoardListCnt() throws Exception {
+	public int getBoardListCnt(Search search) throws Exception {
 		
 		System.out.println("리스트개수");
 		// TODO Auto-generated method stub
-		return boardDAO.getBoardListCnt();
+		return boardDAO.getBoardListCnt(search);
 	}
 
 

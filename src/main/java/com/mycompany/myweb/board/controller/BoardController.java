@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.mycompany.myweb.board.model.BoardVO;
 import com.mycompany.myweb.board.service.BoardService;
 import com.mycompany.myweb.commons.Pagination;
+import com.mycompany.myweb.commons.Search;
 
 
 @Controller
@@ -30,26 +31,47 @@ public class BoardController {
 	@RequestMapping(value ="/getboardList" ,method = RequestMethod.GET) 
 	public String getboardList(Model model, 
 			@RequestParam(required = false, defaultValue = "1") int page,
-			@RequestParam(required = false, defaultValue = "1") int range
-//			@RequestParam(required = false, defaultValue = "title") String searchType,
-//			@RequestParam(required = false) String Keyword
-			) throws Exception                                                    
-	 {
+			@RequestParam(required = false, defaultValue = "1") int range,
+			@RequestParam(required = false, defaultValue = "title") String searchType,
+			@RequestParam(required = false) String keyword
+			) throws Exception {
+		
+		Search search = new Search();
+		search.setSearchType(searchType);
+		search.setKeyword(keyword);
 		
 		logger.info("보트리스트");
 		
 		//전체 게시글 개수
-		int listCnt = boardService.getBoardListCnt();
+		int listCnt = boardService.getBoardListCnt(search);
 		
-		logger.info("listCNT" + listCnt);
+		
+		logger.info("listCnt===" + listCnt);
+		
+		
+		
 		
 		//pagination 객체 생성
 		Pagination pagination = new Pagination();
-		pagination.pageInfo(page, range, listCnt);
 		
-		model.addAttribute("pagination" , pagination);
+	
+		
+		
+		search.pageInfo(page, range, listCnt);
+		
+		logger.info("pageCnt=전체 페이지 수=" + pagination.getPageCnt());
+		logger.info("startPage=시작 페이지=" + pagination.getStartPage());
+		logger.info("endPage=끝페이지=" + pagination.getEndPage());
+		logger.info("startList=게시판 시작 번호=" + pagination.getStartList());
+		logger.info("range=현재 페이지 범위 정보=" + pagination.getRange());
+		logger.info("getListCnt==" + pagination.getListCnt());
+		
+		
+		
+		
+		model.addAttribute("pagination" , search);
 	   
-		model.addAttribute("boardList",boardService.getBoardList(pagination)); // 게시판 리스트를 boards에 담는다.
+		model.addAttribute("boardList",boardService.getBoardList(search)); // 게시판 리스트를 boards에 담는다.
 		return "board/index"; 
 			   
 	}
